@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注释加密器</title>
+    <style>
+        input{
+            height: 20px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button id="btn1">加密</button>
+
+    <button id="btn2">解密</button>
+    <p id="jiamiText"></p>
+</body>
+<script>
+    let input = document.querySelector('#input')
+    let btn1 = document.querySelector('#btn1')
+    let btn2 = document.querySelector('#btn2')
+
+    btn1.addEventListener('click', () => {
+        let result = input.value.split('')
+        result.forEach((element, index, arr) => {
+            arr[index] = element.charCodeAt()
+            arr[index] = arr[index] + 3
+            arr[index] = String.fromCharCode(arr[index].toString())
+        });
+        result = result.join('')
+        document.querySelector('#jiamiText').innerHTML = result
+    })
+    btn2.addEventListener('click', () => {
+        let result = input.value.split('')
+        result.forEach((element, index, arr) => {
+            arr[index] = element.charCodeAt()
+            arr[index] = arr[index] - 3
+            arr[index] = String.fromCharCode(arr[index].toString())
+        });
+        result = result.join('')
+        document.querySelector('#jiamiText').innerHTML = result
+    })
+</script>
+
+</html>
