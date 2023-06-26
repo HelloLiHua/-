@@ -7,6 +7,7 @@
       <el-col :span="8">
         <el-button type="danger" @click="encrypt">加密</el-button>
         <el-button type="success" @click="decrypt">解密</el-button>
+        <el-button type="primary" @click="clearBoth">清除数据</el-button>
       </el-col>
       <el-col :span="8">
         <span>{{outmessage}}</span>
@@ -43,6 +44,10 @@ export default {
         });
         result = result.join('')
         this.outmessage = result
+    },
+    clearBoth(){
+      this.inmessage=undefined
+      this.outmessage=undefined
     }
   }
 }
